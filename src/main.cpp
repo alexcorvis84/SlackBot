@@ -35,7 +35,7 @@
 // Empathy Bot OAuth Token 
 //#define SLACK_BOT_TOKEN "xoxb-4865966397-966266296320-pMcRTdiNSpnQMfRQN2QhUXRO"
 
-// Locate your Member ID in your Slack Space:
+// Locate your <@Member ID> in your Slack Space:
 // You can find it in Profile & account -> ... (vertical 3dots) -> Copy Member ID
 // Member ID MakersAturias 
 #define MEMBERID "<@UM81F0N0Y>"
