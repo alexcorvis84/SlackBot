@@ -4,7 +4,7 @@
    EmpathyLabs [https://www.empathy.co/]
    Licensed under the MIT License
 */
-
+#define ARDUINOJSON_DECODE_UNICODE 1
 #include <Arduino.h>
 #include <time.h>
 #include <HTTPClient.h>
@@ -16,7 +16,7 @@
 #include <Wire.h>
 #include <Adafruit_Sensor.h>
 #include <Adafruit_BME280.h>
-
+#include <FastLED.h>
 
 //-------------------------------------------------------------------------------------------------
 //Slack config
@@ -42,12 +42,13 @@
 
 // Member ID Empathy.co 
 //#define MEMBERID "<@UPV0X6QTE>"
+
+
 //-------------------------------------------------------------------------------------------------
-//Neopixel attached config
-//-------------------------------------------------------------------------------------------------
-#define LEDS_NUMPIXELS  16
-#define LEDS_PIN        32
-Adafruit_NeoPixel pixels(LEDS_NUMPIXELS, LEDS_PIN, NEO_GRB + NEO_KHZ800);
+//FastLed attached config
+#define NUM_LEDS 300
+#define DATA_PIN 32
+CRGB leds[NUM_LEDS];
 //-------------------------------------------------------------------------------------------------
 //Wifi & WSc config
 //-------------------------------------------------------------------------------------------------
@@ -72,60 +73,70 @@ const int PIRPin = 35;         // pin de entrada (for PIR sensor) pins 34 to 39 
 int pirState = LOW; 
 //-------------------------------------------------------------------------------------------------
 
-
-/* 
- *  NEOPIXELs functions to manage notifications
- */
- void colorWipe(uint32_t color, int wait) {
-  for(int i=0; i<pixels.numPixels(); i++) { // For each pixel in strip...
-    pixels.setPixelColor(i, color);         //  Set pixel's color (in RAM)
-    pixels.show();                          //  Update strip to match
-    delay(wait);                           //  Pause for a moment
+void ledanimation(CRGB color) {
+  for(int dot = 0; dot < NUM_LEDS; dot++) { 
+      leds[dot] = color;
+      FastLED.show();
+      // clear this led for the next time around the loop
+      //leds[dot] = CRGB::Black;
+      delay(5);
   }
 }
 
-// Rainbow cycle along whole strip. Pass delay time (in ms) between frames.
-void rainbow(int wait) {
-  // Hue of first pixel runs 5 complete loops through the color wheel.
-  // Color wheel has a range of 65536 but it's OK if we roll over, so
-  // just count from 0 to 5*65536. Adding 256 to firstPixelHue each time
-  // means we'll make 5*65536/256 = 1280 passes through this outer loop:
-  for(long firstPixelHue = 0; firstPixelHue < 5*65536; firstPixelHue += 256) {
-    for(int i=0; i<pixels.numPixels(); i++) { // For each pixel in strip...
-      // Offset pixel hue by an amount to make one full revolution of the
-      // color wheel (range of 65536) along the length of the strip
-      // (strip.numPixels() steps):
-      int pixelHue = firstPixelHue + (i * 65536L / pixels.numPixels());
-      // strip.ColorHSV() can take 1 or 3 arguments: a hue (0 to 65535) or
-      // optionally add saturation and value (brightness) (each 0 to 255).
-      // Here we're using just the single-argument hue variant. The result
-      // is passed through strip.gamma32() to provide 'truer' colors
-      // before assigning to each pixel:
-      pixels.setPixelColor(i, pixels.gamma32(pixels.ColorHSV(pixelHue)));
-    }
-    pixels.show(); // Update strip with new contents
-    delay(wait);  // Pause for a moment
+void showStrip() {
+   FastLED.show();
+}
+
+void setPixel(int Pixel, byte red, byte green, byte blue) {
+   // FastLED
+   leds[Pixel].r = red;
+   leds[Pixel].g = green;
+   leds[Pixel].b = blue;
+}
+
+void setAll(byte red, byte green, byte blue) {
+  for(int i = 0; i < NUM_LEDS; i++ ) {
+    setPixel(i, red, green, blue);
+  }
+  showStrip();
+}
+
+void Strobe(byte red, byte green, byte blue, int StrobeCount, int FlashDelay, int EndPause){
+  for(int j = 0; j < StrobeCount; j++) {
+    setAll(red,green,blue);
+    showStrip();
+    delay(FlashDelay);
+    setAll(0,0,0);
+    showStrip();
+    delay(FlashDelay);
+  }
+ 
+ delay(EndPause);
+}
+
+void FadeInOut(byte red, byte green, byte blue){
+  float r, g, b;
+     
+  for(int k = 0; k < 256; k=k+1) {
+    r = (k/256.0)*red;
+    g = (k/256.0)*green;
+    b = (k/256.0)*blue;
+    setAll(r,g,b);
+    showStrip();
+  }
+     
+  for(int k = 255; k >= 0; k=k-2) {
+    r = (k/256.0)*red;
+    g = (k/256.0)*green;
+    b = (k/256.0)*blue;
+    setAll(r,g,b);
+    showStrip();
   }
 }
 
-// Theater-marquee-style chasing lights. Pass in a color (32-bit value,
-// a la strip.Color(r,g,b) as mentioned above), and a delay time (in ms)
-// between frames.
-void theaterChase(uint32_t color, int wait) {
-  for(int a=0; a<10; a++) {  // Repeat 10 times...
-    for(int b=0; b<3; b++) { //  'b' counts from 0 to 2...
-      pixels.clear();         //   Set all pixels in RAM to 0 (off)
-      // 'c' counts up from 'b' to end of strip in steps of 3...
-      for(int c=b; c<pixels.numPixels(); c += 3) {
-        pixels.setPixelColor(c, color); // Set pixel 'c' to value 'color'
-      }
-      pixels.show(); // Update strip with new contents
-      delay(wait);  // Pause for a moment
-    }
-  }
-}
-
-//-------------------------------------------------------------------------------------------------
+/*
+  Gets the local time and prints it on Serial
+*/
 void printLocalTime()
 {
   struct tm timeinfo;
@@ -198,33 +209,32 @@ bool process_command(String text, String channel){
        String  var = getValue(text, ' ', i);
        if (var == MEMBERID){
           Serial.print("User "+ var + " found!");
-          rainbow(20);
+          // Slower:
+          Strobe(0xff, 0x77, 0x00, 10, 100, 1000);
+          // Fast:
+          //Strobe(0x80, 0x80, 0x80, 30, 50, 1000);
+          //FadeInOut(0xff, 0x77, 0x00);
        }
   }
 
   if (text == "red"){
-       colorWipe(pixels.Color(255,   0,   0), 50);
+      ledanimation(CRGB::Red);
       return true;
   }
   if (text == "green"){
-       colorWipe(pixels.Color(0,   255,   0), 50);
+      ledanimation(CRGB::Green);
       return true;
   }
   if (text == "blue"){
-       colorWipe(pixels.Color(0,   0,   255), 50);
+      ledanimation(CRGB::Blue);
       return true;
   }
   if (text == "off"){
-      pixels.clear();
-       colorWipe(pixels.Color(0,   0,   0), 50);
+      ledanimation(CRGB::Black);
       return true;
   }
   if (text == "on"){
-      pixels.clear();
-        theaterChase(pixels.Color(127, 127, 127), 50);
-        theaterChase(pixels.Color(127, 0, 0), 50);
-        theaterChase(pixels.Color(0, 0, 127), 50);
-        colorWipe(pixels.Color(0,   0,   0), 50);
+      Serial.println("Recibido comando 'on' ");
       return true;
   }
   if (text == ":door:"){
@@ -384,16 +394,16 @@ void setup() {
   Serial.begin(115200);
   pinMode(LEDPin, OUTPUT); 
   pinMode(PIRPin, INPUT);
+  //pixels.begin();
+  //pixels.setBrightness(64);
+  //pixels.show();
+  FastLED.addLeds<NEOPIXEL, DATA_PIN>(leds, NUM_LEDS);
 
   status = bme.begin(0x76);
   if (!status) {
         Serial.println("Could not find a valid BME280 sensor, check wiring, address, sensor ID!");
         Serial.print("SensorID was: 0x"); Serial.println(bme.sensorID(),16);
   }
-
-  pixels.begin();
-  pixels.show();
-  pixels.setBrightness(50);
 
   myservo.setPeriodHertz(50); // Standard 50hz servo
   myservo.attach(servoPin, 500, 2400);  // attaches the servo on pin 18 to the servo object
