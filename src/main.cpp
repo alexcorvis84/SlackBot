@@ -46,7 +46,7 @@
 
 //-------------------------------------------------------------------------------------------------
 //FastLed attached config
-#define NUM_LEDS 300
+#define NUM_LEDS 16
 #define DATA_PIN 32
 CRGB leds[NUM_LEDS];
 //-------------------------------------------------------------------------------------------------
@@ -70,7 +70,7 @@ unsigned status;           // Check I2C sensor
 Adafruit_BME280 bme;       // I2C SDA GPIO21 - SCL GPIO22 - GND - 3.3V
 const int LEDPin = 27;     // Pin LED
 const int dopplerPin = 35; // Input Pin for RCWL-0516 sensor (34-39 pins can be used as input only)
-int State = LOW;
+int State = LOW;           // Variable state for Microwave doppler sensor
 //-------------------------------------------------------------------------------------------------
 
 void ledanimation(CRGB color) {
@@ -210,7 +210,7 @@ bool process_command(String text, String channel){
        if (var == MEMBERID){
           Serial.print("User "+ var + " found!");
           // Slower:
-          Strobe(0xff, 0x77, 0x00, 10, 100, 1000);
+          Strobe(0xff, 0xff, 0xff, 10, 100, 1000);
           // Fast:
           //Strobe(0x80, 0x80, 0x80, 30, 50, 1000);
           //FadeInOut(0xff, 0x77, 0x00);
@@ -239,7 +239,7 @@ bool process_command(String text, String channel){
   }
   if (text == ":door:"){
       myservo.write(45);
-      delay(200); // wait for the servo to get position
+      delay(3000); // wait for the servo to get position
       myservo.write(0);
       delay(200);
       return true;
