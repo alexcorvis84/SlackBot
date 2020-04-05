@@ -9,7 +9,7 @@
 #include <time.h>
 #include <HTTPClient.h>
 #include <WebSocketsClient.h>
-#include <WiFiManager.h>          //https://github.com/tzapu/WiFiManager WiFi Configuration Magic
+#include <WiFiManager.h>          // https://github.com/tzapu/WiFiManager
 #include <ArduinoJson.h>
 #include <Adafruit_NeoPixel.h>
 #include <ESP32Servo.h>
@@ -63,14 +63,14 @@ const int dst = 0; //daylight savings
 //-------------------------------------------------------------------------------------------------
 //Variables
 //-------------------------------------------------------------------------------------------------
-bool connected = false; // Check Slack connection
-int servoPin = 26; // Possible PWM GPIO pins on the ESP32: 0(used by on-board button),2,4,5(used by on-board LED),12-19,21-23,25-27,32-33 
-Servo myservo; // create servo object to control a servo
-unsigned status;  // Check I2C sensor
-Adafruit_BME280 bme; // I2C SDA GPIO21 - SCL GPIO22 - GND - 3.3V
-const int LEDPin = 27;        // pin para el LED
-const int PIRPin = 35;         // pin de entrada (for PIR sensor) pins 34 to 39 can be used as input only
-int pirState = LOW; 
+bool connected = false;    // Check Slack connection
+int servoPin = 26;         // Possible PWM GPIO pins on the ESP32: 0(used by on-board button),2,4,5(used by on-board LED),12-19,21-23,25-27,32-33 
+Servo myservo;             // Create servo object to control a servo
+unsigned status;           // Check I2C sensor
+Adafruit_BME280 bme;       // I2C SDA GPIO21 - SCL GPIO22 - GND - 3.3V
+const int LEDPin = 27;     // Pin LED
+const int dopplerPin = 35; // Input Pin for RCWL-0516 sensor (34-39 pins can be used as input only)
+int State = LOW;
 //-------------------------------------------------------------------------------------------------
 
 void ledanimation(CRGB color) {
@@ -181,7 +181,7 @@ void sendWConditions(String channel) {
   String msg_complete = msg_condR;
   Serial.println(msg_complete);
 
-  if(pirState == LOW){
+  if(State == LOW){
     msg_complete = msg_condR + "\nRoom State: :heavy_check_mark:" ;
   }
   else{
@@ -393,7 +393,7 @@ void setup() {
   
   Serial.begin(115200);
   pinMode(LEDPin, OUTPUT); 
-  pinMode(PIRPin, INPUT);
+  pinMode(dopplerPin, INPUT);
   //pixels.begin();
   //pixels.setBrightness(64);
   //pixels.show();
@@ -457,23 +457,23 @@ void loop() {
   
   webSocket.loop();
 
-  int val = digitalRead(PIRPin);
+  int val = digitalRead(dopplerPin);
   if (val == HIGH)
   { 
     digitalWrite(LEDPin, HIGH);
-    if (pirState == LOW)
+    if (State == LOW)
     {
       Serial.println("Sensor activado");
-      pirState = HIGH;
+      State = HIGH;
     }
   } 
   else
   {
     digitalWrite(LEDPin, LOW);
-    if (pirState == HIGH)
+    if (State == HIGH)
     {
       Serial.println("Sensor parado");
-      pirState = LOW;
+      State = LOW;
     }
   }
 
