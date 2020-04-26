@@ -70,6 +70,7 @@ unsigned status;           // Check I2C sensor
 Adafruit_BME280 bme;       // I2C SDA GPIO21 - SCL GPIO22 - GND - 3.3V
 const int LEDPin = 27;     // Pin LED
 const int dopplerPin = 35; // Input Pin for RCWL-0516 sensor (34-39 pins can be used as input only)
+const int relay = 12;      // Relay 12V Pin to trigger Sound Alarm
 int State = LOW;           // Variable state for Microwave doppler sensor
 //-------------------------------------------------------------------------------------------------
 
@@ -132,6 +133,13 @@ void FadeInOut(byte red, byte green, byte blue){
     setAll(r,g,b);
     showStrip();
   }
+}
+
+void trigger_alarm(){
+  digitalWrite(relay, HIGH);
+  delay(1500);
+  digitalWrite(relay, LOW);
+  Serial.println("Apagando alarma");
 }
 
 /*
@@ -214,6 +222,7 @@ bool process_command(String text, String channel){
           // Fast:
           //Strobe(0x80, 0x80, 0x80, 30, 50, 1000);
           //FadeInOut(0xff, 0x77, 0x00);
+          trigger_alarm();
        }
   }
 
@@ -392,7 +401,8 @@ bool connectToSlack() {
 void setup() {
   
   Serial.begin(115200);
-  pinMode(LEDPin, OUTPUT); 
+  pinMode(LEDPin, OUTPUT);
+  pinMode(relay, OUTPUT);
   pinMode(dopplerPin, INPUT);
   //pixels.begin();
   //pixels.setBrightness(64);
