@@ -138,7 +138,7 @@ Select your Wi-Fi SSID, introduce your password, **click save** & you’re ready
 
 - **off** →  The NeoPixel ring will go off
 
-- **:door:** →  If the door emoji 🚪 is sent, the servo will be activated (as example, in the setup configuration demo the servo press down the button of a remote controller which opens a Garage door)
+- **:door:** →  If the door emoji is sent, the servo will be activated (as example, in the setup configuration demo the servo press down the button of a remote controller which opens a Garage door)
 
  - **room_status** → The bot will reply back to the user with the information from the BME280 sensor (temperature & pressure) & the microwave sensor will detect if there is someone in the room where the device is placed, being useful to know if it is free or not.
 
