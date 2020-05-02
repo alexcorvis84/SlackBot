@@ -89,7 +89,9 @@ So I developed my own source code based on his work (thanks again!) and started 
 #define SLACK_SSL_FINGERPRINT "C1 0D 53 49 D2 3E E5 2B A2 61 D5 9E 6F 99 0D 3D FD 8B B2 B3"
 ```
 > If Slack changes the SSL you would need to update with the new SHA-1 fingerprint.
-You can check it by looking at certificate details when accessing the Slack API website. 
+You can check it by looking at certificate details when accessing the Slack API website.
+
+![How to obtain Slack fingerprint](/img/Slack_fingerprint.png)
 
 **Slack App and Bot integration**
 
