@@ -8,7 +8,7 @@ How could I explain to new colleagues what’s the mission regarding empathy LAB
 
 People who know me closely know that I’m a new technology enthusiast. I love to prototype ideas 💡 that could become a real life solution to a problem. I love the ‘Do It Yourself’ philosophy and Maker culture as I consider it’s a great example of this design process: 
 
-Research → Draft → Prototype → Review → Refine
+***Research → Draft → Prototype → Review → Refine***
 
 That’s why I considered that the best way to let you understand the mission of eLABS was by doing something practical, something that could serve as a great example and... What better way than prototyping something useful?
 
