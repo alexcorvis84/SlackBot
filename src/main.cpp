@@ -139,7 +139,7 @@ void trigger_alarm(){
   digitalWrite(relay, HIGH);
   delay(1500);
   digitalWrite(relay, LOW);
-  Serial.println("Apagando alarma");
+  Serial.println("Switching off Sound Alarm");
 }
 
 /*
@@ -220,8 +220,10 @@ bool process_command(String text, String channel){
           // Slower:
           Strobe(0xff, 0xff, 0xff, 10, 100, 1000);
           // Fast:
-          //Strobe(0x80, 0x80, 0x80, 30, 50, 1000);
-          //FadeInOut(0xff, 0x77, 0x00);
+          //Strobe(0xff, 0xff, 0xff, 30, 50, 1000);
+          for(i=0;i<3;i++){
+            FadeInOut(0xff, 0x00, 0x00);
+          }
           trigger_alarm();
        }
   }

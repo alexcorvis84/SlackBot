@@ -6,7 +6,7 @@ When I joined [empathy.co](https://www.empathy.co/) in order to lead the Labs Te
 
 How could I explain to new colleagues what’s the mission regarding empathy LABs (eLABS)? 🤔
 
-People who know me closely know that I’m a new technology enthusiast. I love to prototype ideas 💡 that could become a real life solution to a problem. I love the ‘Do It Yourself’ philosophy and Maker culture as I consider it’s a great example of this design process: 
+People who know me closely know that I’m a new technology enthusiast. I like to prototype ideas 💡 that could become a solution to a problem. I love the ‘Do It Yourself’ philosophy and Maker culture as I consider it’s a great example of this design process: 
 
 ***Research → Draft → Prototype → Review → Refine***
 
@@ -79,54 +79,54 @@ So I developed my own source code based on his work (thanks again!) and started 
     - [PlatformIO](https://docs.platformio.org/en/latest/integration/ide/vscode.html#installation) will automatically download all the necessary resources 🎩✨! You will just need to setup your own configuration variables accordingly
 
 
-### Code configuration:
+## Code configuration:
 
 **Slack SSL SHA-1 fingerprint**
 
-```c++
+```cpp
 #define SLACK_SSL_FINGERPRINT "C1 0D 53 49 D2 3E E5 2B A2 61 D5 9E 6F 99 0D 3D FD 8B B2 B3"
 ```
-If slack changes the SSL, you would need to update with the new SHA-1 fingerprint. You can check it by looking at certificate details when accessing the Slack API website. 
+> If Slack changes the SSL you would need to update with the new SHA-1 fingerprint.
+You can check it by looking at certificate details when accessing the Slack API website. 
 
 **Slack App and Bot integration**
 
-1) Get token by creating new App at https://api.slack.com/apps
-2) Add a Bot User to your APP
-3) Then install your App to your Slack workspace to generate the 'Bot User OAuth Access Token'
-4) Set your OAuth Scope: channels:read / chat:write:bot / bot / incoming-webhook
-```c++
+1) Get ```token``` by creating new App at https://api.slack.com/apps
+2) Add a **Bot User** to your App
+3) Then **install your App** to your Slack **workspace** to generate the ```Bot User OAuth Access Token```
+4) Set the following OAuth Scopes: ```channels:read``` / ```chat:write:bot``` / ```bot``` / ```incoming-webhook```
+5) Locate your ```<@MEMBER_ID>``` in your Slack Space: you can find it in ***Profile & account -> ... (3 vertical dots) -> Copy Member ID***
+6) Then **setup your own values** in source code '*/src/**main.cpp***'
+
+```cpp
 #define SLACK_BOT_TOKEN "Your_Bot_User_OAuth_Access_Token"
-```
-5) Locate your <@Member ID> in your Slack Space:
-You can find it in Profile & account -> ... (3 vertical dots) -> Copy Member ID
-```c++
 #define MEMBERID "<@MEMBER_ID>"
 ```
-**Wifi-Configuration**
+**Wi-Fi Configuration**
 
-The code uses the **[WifiManager](https://github.com/tzapu/WiFiManager)** library, which eases the configuration.
+The code uses the **[WifiManager](https://github.com/tzapu/WiFiManager)** library, which eases the W-Fi configuration.
 
-Once the code has been uploaded, the ESP32 will create by default a Wi-Fi *Access Point* called **“EmpahtyBot_AP”** and *password* **“labs2020”**.
+Once the code has been uploaded, the ESP32 will create by default a **Wi-Fi *Access Point*** called **“EmpahtyBot_AP”** and *password* **“labs2020”**.
 
-Connect to it using any WiFi enabled device with a browser (computer, phone, tablet) and then the Web Captive Portal will start. You will be able to scan and set up your Wi-Fi connection.
+Connect to it using any WiFi enabled device with a browser (computer, phone, tablet) and then the Web Captive Portal will start. You will be able to **scan and set up your Wi-Fi** connection.
 
-Select your Wi-Fi SSID, introduce your password, click save & you’re ready to go!
+Select your Wi-Fi SSID, introduce your password, **click save** & you’re ready to go!
 
-If you would need to reset the settings, just uncomment the below line & upload code again.
+> If you would need to reset the settings to dafault, just uncomment the below line & upload code to the board again.
 ```c++
-wm.resetSettings();
+// wm.resetSettings();
 ```
 
-### DEMO SETUP CONFIGURATION
+## DEMO SETUP CONFIGURATION
 
-**Demo Setup**
+**Hardware Setup**
 
-- 16 LED NeoPixel ring connected to GPIO32
-- BME280 sensor (I2C: connected as → SDA GPIO21 - SCL GPIO22 - GND - 3.3V)
-- Led connected to GPIO27
-- Servo connected to GPIO26
-- RCWL-0516 Microwave proximity sensor connected to GPIO35
-- 12V Relay connected to GPIO12 (relay connected to a 12V Sound Alarm)
+- **16 LED NeoPixel ring** connected to GPIO32
+- **BME280 sensor** (I2C: connected as → SDA GPIO21 - SCL GPIO22 - GND - 3.3V)
+- **LED** connected to GPIO27
+- **Servo** connected to GPIO26
+- **RCWL-0516** Microwave proximity sensor connected to GPIO35
+- **12V Relay** connected to GPIO12 (relay is connected to a 12V Sound Alarm as example)
 
 **Default Commands**
 
@@ -140,4 +140,4 @@ wm.resetSettings();
 
 If the message sent by any user contains your ```<@MEMBER_ID>``` in the Slack channel where the Bot has been integrated, the Neopixels ring will show you an animation & then the sound alarm connected to the 12V relay will be turned on for a few seconds.
 
-Check video setup config [example](https://twitter.com/AlexCorvis84/status/1251226999315738626?s=20)
+Check video DEMO setup configuration [example](https://twitter.com/AlexCorvis84/status/1251226999315738626?s=20) running
