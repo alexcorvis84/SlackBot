@@ -58,23 +58,23 @@ So I developed my own source code based on his work (thanks again!) and started 
 
 ### 4. Code improvements ✨:
 
-- Project is portable: you can bring with you the prototype wherever you want and you will just need to follow the Wi-Fi configuration portal to set up your Wi-Fi network to be used.
+- **Project is portable:** you can bring with you the prototype wherever you want and you will just need to follow the Wi-Fi configuration portal to set up your Wi-Fi network to be used.
 
     - No need to hardcode your Wi-Fi credentials anymore as it uses a [Wi-Fi manager](https://github.com/tzapu/WiFiManager) library!
 
-- Personal/channel/group notifications: you could set up the prototype to be used as a personal notification gadget at the side of your desk. 
+- **Personal/channel/group notifications:** you could set up the prototype to be used as a personal notification gadget at the side of your desk. 
 
     - For instance, you could show some animations on a NeoPixel Ring / Strip or even play an alarm sound whenever e.g., your user name (@MemberID) is mentioned on any channel!
 
-- Project based on ESP32: which means you have more GPIOs available to connect any sensors, actuators, displays, lights...
+- **Project based on ESP32:** which means you have more GPIOs available to connect any sensors, actuators, displays, lights...
 
     - The ESP32 is much more powerful 💪!
 
-- Parse any word from any message sent to the bot: you can look for any word sent on any message. 
+- **Parse any word from any message sent to the bot:** you can look for any word sent on any message. 
 
     - It opens great possibilities to develop your own solutions based on personalised commands 🤔💡💭!
 
-- Project build with [PlatformIO](https://platformio.org/): no need to install manually libraries or depencies. Just download source code, open it with PlatformIO, connect your ESP32 board, select the right Serial port and upload.
+- **Project build with [PlatformIO](https://platformio.org/):** no need to install manually libraries or depencies. Just download source code, open it with PlatformIO, connect your ESP32 board, select the right Serial port and upload.
 
     - [PlatformIO](https://docs.platformio.org/en/latest/integration/ide/vscode.html#installation) will automatically download all the necessary resources 🎩✨! You will just need to setup your own configuration variables accordingly
 
@@ -138,6 +138,6 @@ Select your Wi-Fi SSID, introduce your password, **click save** & you’re ready
 
  - **room_status** → The bot will reply back to the user with the information from the BME280 sensor (temperature & pressure) & the microwave sensor will detect if there is someone in the room where the device is placed, being useful to know if it is free or not.
 
-If the message sent by any user contains your ```<@MEMBER_ID>``` in the Slack channel where the Bot has been integrated, the Neopixels ring will show you an animation & then the sound alarm connected to the 12V relay will be turned on for a few seconds.
+If the message sent by any user contains your ```<@MEMBER_ID>``` in the Slack ```#channel``` where the Bot has been integrated, the NeoPixel ring will show you an animation & then the sound alarm connected to the 12V relay will be turned on for a few seconds.
 
-Check video DEMO setup configuration [example](https://twitter.com/AlexCorvis84/status/1251226999315738626?s=20) running
+Check video DEMO setup configuration [example](https://twitter.com/AlexCorvis84/status/1251226999315738626?s=20) running.
