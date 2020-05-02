@@ -66,7 +66,7 @@ So I developed my own source code based on his work (thanks again!) and started 
 
 - **Personal/channel/group notifications:** you could set up the prototype to be used as a personal notification gadget at the side of your desk. 
 
-    - For instance, you could show some animations on a NeoPixel Ring / Strip or even play an alarm sound whenever e.g., your user name (@MemberID) is mentioned on any channel!
+    - For instance, you could show some animations on a NeoPixel Ring / Strip or even play an alarm sound whenever e.g., your user name (```<@MEMBER_ID>```) is mentioned on any channel!
 
 - **Project based on ESP32:** which means you have more GPIOs available to connect any sensors, actuators, displays, lights...
 
