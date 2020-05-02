@@ -1,5 +1,7 @@
 # Slack Bot 🤖: IoT automation with ESP32 & RTM API
 
+![ESP32 Slack Bot](/img/Slack_bot.png)
+
 ## Project Background
 
 When I joined [empathy.co](https://www.empathy.co/) in order to lead the Labs Team, one of the first questions I asked myself was: 
