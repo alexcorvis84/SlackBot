@@ -434,7 +434,7 @@ void setup() {
   // wm.autoConnect("EmpathyBot_AP","labs2020"); // password protected AP
 
   //Reset settings - wipe credentials for Testing
-  //wm.resetSettings();
+  wm.resetSettings();
 
   if(!wm.autoConnect("EmpathyBot_AP","labs2020")) {
       Serial.println("Failed to connect");
