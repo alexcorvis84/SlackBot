@@ -42,7 +42,7 @@ Once you get the idea, the prototyping phase starts.
 
 I usually draw a basic draft of the architecture of the application in a notebook following some kind of my own *‘Design Thinking’* process.
 
-Below you can find the very first draft idea I realized, how could we automate e.g., the parking door opening:
+Below you can find the very first draft idea I realized, how could we automate e.g., the parking door opening.
 
 With the blink of an eye, you can easily understand how it will work or get the point. Am I right? 😉
 
