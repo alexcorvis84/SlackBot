@@ -112,15 +112,19 @@ The code uses the **[WifiManager](https://github.com/tzapu/WiFiManager)** librar
 
 Once the code has been uploaded, the ESP32 will create by default a **Wi-Fi *Access Point*** called **“EmpahtyBot_AP”** and *password* **“labs2020”**.
 
-<img src="/img/wifi_config.jpg" alt="WiFi config captive portal" width=200>
+<img src="/img/wifi_AP.jpg" alt="WiFi Access Point" width=250>
 
-Connect to it using any WiFi enabled device with a browser (computer, phone, tablet) and then the Web Captive Portal will start. You will be able to **scan and set up your Wi-Fi** connection.
+Connect to it using any WiFi enabled device with a browser (computer, phone, tablet) and then the Web Captive Portal will start. 
 
-<img src="/img/wifi_scan.jpg" alt="WiFi Scan" width=200>
+<img src="/img/wifi_config.jpg" alt="WiFi config captive portal" width=250>
+
+You will be able to **scan and set up your Wi-Fi** connection.
+
+<img src="/img/wifi_scan.jpg" alt="WiFi Scan" width=250>
 
 Select your Wi-Fi SSID, enter your password, **click save** & you’re ready to go!
 
-<img src="/img/wifi_credentials.jpg" alt="WiFi Setup" width=200>
+<img src="/img/wifi_credentials.jpg" alt="WiFi Setup" width=250>
 
 If you need to **reset settings to default**, just uncomment the below line & upload code to the board again.
 
@@ -128,16 +132,16 @@ If you need to **reset settings to default**, just uncomment the below line & up
     wm.resetSettings();
 ```
 
-## DEMO SETUP CONFIGURATION
+## DEMO SETUP CONFIGURATION 🛠️ 🧰
 
 **Hardware Setup**
-
-- **16 LED NeoPixel ring** connected to GPIO32
-- **BME280 sensor** (I2C: connected as → SDA GPIO21 - SCL GPIO22 - GND - 3.3V)
-- **LED** connected to GPIO27
-- **Servo** connected to GPIO26
-- **RCWL-0516** Microwave proximity sensor connected to GPIO35
-- **12V Relay** connected to GPIO12 (relay is connected to a 12V Sound Alarm as example)
+- [**ESP32 DevkitC**](https://www.espressif.com/en/products/devkits/esp32-devkitc/overview) obviously! 😆
+- **16 LED NeoPixel ring** 🌈 connected to **GPIO32**
+- **BME280 sensor** 🌡️ (**I2C**: connected as → **SDA** GPIO21 - **SCL** GPIO22 - GND - 3.3V)
+- **LED** 💡 connected to **GPIO27**
+- **Servo** 🏗️ connected to **GPIO26**
+- **RCWL-0516** 👋 Microwave proximity sensor connected to **GPIO35**
+- **12V Relay** 🔌 connected to **GPIO12** (relay is connected to a 12V Sound Alarm as example)
 
 **Default Commands**
 
@@ -145,7 +149,7 @@ If you need to **reset settings to default**, just uncomment the below line & up
 
 - **off** →  The NeoPixel ring will go off
 
-- **:door:** →  If the door emoji is sent, the servo will be activated (as example, in the setup configuration demo the servo press down the button of a remote controller which opens a Garage door)
+- **:door:** →  If the door emoji is sent, the servo will be activated (ie: in demo setup configuration the servo press down the button of a remote controller which opens a Garage door)
 
  - **room_status** → The bot will reply back to the user with the information from the BME280 sensor (temperature & pressure) & the microwave sensor will detect if there is someone in the room where the device is placed, being useful to know if it is free or not.
 
@@ -161,4 +165,4 @@ Here are some ideas:
 
 - Personal notification desk lamp. Design & 3D print your own Slack notification desk lamp 🖥️🛎️
 - Surveillance system. Receive photos if motion is detected! 📸
-- Remote control. Automate any IoT project! 📡
+- Remote control. Automate any IoT project! 📡📲
