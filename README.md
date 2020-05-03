@@ -8,7 +8,7 @@ When I joined [empathy.co](https://www.empathy.co/) in order to lead the Labs Te
 
 How could I explain to new colleagues what’s the mission regarding empathy LABs (eLABS)? 🤔
 
-People who know me closely know that I’m a new technology enthusiast. I like to prototype ideas 💡 that could become a solution to a problem. I love the ‘Do It Yourself’ philosophy and Maker culture as I consider it’s a great example of this design process: 
+People who know me closely know that I’m a new technology enthusiast. I like to prototype ideas 💡 that could become a solution to a problem. I love the **‘Do It Yourself’** philosophy and **Maker culture** as I consider it’s a great example of this design process: 
 
 ***Research → Draft → Prototype → Review → Refine***
 
@@ -24,7 +24,7 @@ So this marks the start point of any kind of prototype:
 
 The idea of this integration is to use a microcontroller [ESP32](https://www.espressif.com/en/products/devkits/esp32-devkitc/overview) directly connected to the Internet via Wi-Fi in order to create a Bot designed to interact with users via chat messages. 
 
-A bot 🤖 is the same as a regular app: it can access the same range of APIs and do all of the *‘magical things’* that a Slack App can do, but when you build a bot for your Slack App, you're giving that app a face, a name, a personality and encouraging users to talk to it.
+A bot 🤖 is the same as a regular app: it can access the same range of APIs and do all of the *‘magic things’* 🧙 that a Slack App can do, but when you build a bot for your Slack App, you're giving that app a face, a name, a personality and encouraging users to talk to it.
 
 <p align="center">
     <img src="/img/empathy_bot.png" alt="EmpathyBot App" width=300>
