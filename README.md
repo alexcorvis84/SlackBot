@@ -114,7 +114,7 @@ Once the code has been uploaded, the ESP32 will create by default a **Wi-Fi *Acc
 
 Connect to it using any WiFi enabled device with a browser (computer, phone, tablet) and then the Web Captive Portal will start. You will be able to **scan and set up your Wi-Fi** connection.
 
-Select your Wi-Fi SSID, introduce your password, **click save** & you’re ready to go!
+Select your Wi-Fi SSID, enter your password, **click save** & you’re ready to go!
 
 > If you would need to reset the settings to dafault, just uncomment the below line & upload code to the board again.
 ```c++
