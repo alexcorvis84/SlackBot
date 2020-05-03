@@ -52,7 +52,7 @@ When you build something related to any 3rd party vendor services, there’s no 
 
 The prototype uses an ESP32 controller implementing the [Real Time Messaging API](https://api.slack.com/rtm) which is based on a WebSocket connection.
 
-One of the most valuable things about the Maker community is their love and passion to share the projects as [Open Source](https://opensource.com/resources/what-open-source) and under [Open Source Licenses](https://opensource.org/licenses) that makes it possible for you to reuse their work. Luckily I was able to find on the Internet that a user [@urish](https://github.com/urish) had the same idea as me (4 years ago though!) and implemented a Slack Bot with the same API.
+One of the most valuable things about the Maker community is their love and passion to share the projects as [Open Source](https://opensource.com/resources/what-open-source) and under [Open Source Licenses](https://opensource.org/licenses) that makes it possible for you to reuse their work. Luckily I was able to find on the Internet that a user [@urish](https://github.com/urish) had the same idea as me (4 years ago though!) and implemented a [Slack Bot](https://medium.com/@urish/how-to-connect-your-t-shirt-to-slack-using-arduino-90761201d70f) with the same API.
 
 I looked into their source code available which helped me not to start from scratch the build process. But, what happened? I realized that **some things did not work as I expected or were missing…** 😟
 
