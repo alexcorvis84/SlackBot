@@ -124,7 +124,7 @@ The code uses the **[WifiManager](https://github.com/tzapu/WiFiManager)** librar
 
 Once the code has been uploaded, the ESP32 will create by default a **Wi-Fi *Access Point*** called **“EmpahtyBot_AP”** and *password* **“labs2020”**.
 
-> You can change the settings by your own modifying below code line
+> You can change the settings by your own modifying below code line in '/src/main.cpp'
 ```cpp
 !wm.autoConnect("EmpathyBot_AP","labs2020")
 ```
@@ -150,7 +150,7 @@ Select your Wi-Fi SSID, enter your password, **click save** & you’re ready to 
     <img src="/img/wifi_credentials.jpg" alt="WiFi Setup" width=250>
 </p>
 
-If you need to **reset settings to default**, just uncomment the below line & upload code to the board again.
+If you need to **reset settings to default**, just uncomment the below line ('/src/main.cpp') & upload code to the board again.
 
 ```c++
     wm.resetSettings();
