@@ -122,9 +122,10 @@ Select your Wi-Fi SSID, enter your password, **click save** & you’re ready to 
 
 <img src="/img/wifi_credentials.jpg" alt="WiFi Setup" width=200>
 
-> If you would need to reset the settings to dafault, just uncomment the below line & upload code to the board again.
+If you need to **reset settings to default**, just uncomment the below line & upload code to the board again.
+
 ```c++
-// wm.resetSettings();
+    wm.resetSettings();
 ```
 
 ## DEMO SETUP CONFIGURATION
