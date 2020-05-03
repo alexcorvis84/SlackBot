@@ -112,21 +112,15 @@ The code uses the **[WifiManager](https://github.com/tzapu/WiFiManager)** librar
 
 Once the code has been uploaded, the ESP32 will create by default a **Wi-Fi *Access Point*** called **“EmpahtyBot_AP”** and *password* **“labs2020”**.
 
-![WiFi config captive portal](/img/wifi_config.jpg)
-
-<img src="/img/wifi_config.jpg" width=200>
+<img src="/img/wifi_config.jpg" alt="WiFi config captive portal" width=200>
 
 Connect to it using any WiFi enabled device with a browser (computer, phone, tablet) and then the Web Captive Portal will start. You will be able to **scan and set up your Wi-Fi** connection.
 
-![WiFi Scan](/img/wifi_scan.jpg)
-
-<img src="/img/wifi_scan.jpg" width=200>
+<img src="/img/wifi_scan.jpg" alt="WiFi Scan" width=200>
 
 Select your Wi-Fi SSID, enter your password, **click save** & you’re ready to go!
 
-![WiFi Setup](/img/wifi_credentials.jpg)
-
-<img src="/img/wifi_credentials.jpg" width=200>
+<img src="/img/wifi_credentials.jpg" alt="WiFi Setup" width=200>
 
 > If you would need to reset the settings to dafault, just uncomment the below line & upload code to the board again.
 ```c++
