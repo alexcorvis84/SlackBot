@@ -42,7 +42,9 @@ Once you get the idea, the prototyping phase starts.
 
 I usually draw a basic draft of the architecture of the application in a notebook following some kind of my own *‘Design Thinking’* process.
 
-Below you can find the very first draft idea I realized, how could we automate e.g., the parking door opening.
+Below you can find the very first draft idea I realized, how could we automate e.g., the parking door opening? 🤔
+
+<img src="/img/draft_idea.jpg" alt="WiFi Access Point" width=250 align="middle">
 
 With the blink of an eye, you can easily understand how it will work or get the point. Am I right? 😉
 
@@ -81,7 +83,7 @@ So I developed my own source code based on his work (thanks again!) and started 
     - [PlatformIO](https://docs.platformio.org/en/latest/integration/ide/vscode.html#installation) will automatically download all the necessary resources 🎩✨! You will just need to setup your own configuration variables accordingly
 
 
-## Code configuration:
+## Code configuration 🎛️
 
 **Slack SSL SHA-1 fingerprint**
 
