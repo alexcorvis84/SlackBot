@@ -45,7 +45,7 @@ I usually draw a basic draft of the architecture of the application in a noteboo
 Below you can find the very first draft idea I realized: how could we automate e.g., the parking door opening? 🤔
 
 <p align="center">
-  <img src="/img/draft_idea.jpg" alt="Draft Idea" width=500>
+    <img src="/img/draft_idea.jpg" alt="Draft Idea" width=500>
 </p>
 
 With the blink of an eye, you can easily understand how it will work or get the point. Am I right? 😉
@@ -95,7 +95,9 @@ So I developed my own source code based on his work (thanks again!) and started 
 > If Slack changes the SSL you would need to update with the new SHA-1 fingerprint.
 You can check it by looking at certificate details when accessing the Slack API website.
 
-![How to obtain Slack fingerprint](/img/Slack_fingerprint.png)
+<p align="center">
+    <img src="/img/Slack_fingerprint.png" alt="How to obtain Slack fingerprint" width=500>
+</p>
 
 **Slack App and Bot integration**
 
