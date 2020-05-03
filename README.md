@@ -8,9 +8,11 @@ When I joined [empathy.co](https://www.empathy.co/) in order to lead the Labs Te
 
 How could I explain to new colleagues what’s the mission regarding empathy LABs (eLABS)? 🤔
 
-People who know me closely know that I’m a new technology enthusiast. I like to prototype ideas 💡 that could become a solution to a problem. I love the **‘Do It Yourself’** philosophy and **Maker culture** as I consider it’s a great example of this design process: 
+People who know me closely know that I’m a new technology enthusiast. I like to prototype ideas 💡 that could become a solution to a problem. I love the **‘Do It Yourself’** philosophy and **Maker culture** as I consider it’s a great example of this design process:
 
-***Research → Draft → Prototype → Review → Refine***
+<p align="center">
+    <b>Research → Draft → Prototype → Review → Refine</b>
+</p>
 
 That’s why I considered that the best way to let you understand the mission of eLABS was by doing something practical, something that could serve as a great example and... What better way than prototyping something useful?
 

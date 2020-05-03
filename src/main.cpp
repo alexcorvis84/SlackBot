@@ -1,7 +1,7 @@
 /*
-   DOIT ESP32 DevKitV1 Real-Time Slack Bot
+   DOIT ESP32 DevKitC Real-Time Slack Bot
    Copyright (C) 2020, Alejandro Juan Garcia (@AlexCorvis84)
-   EmpathyLabs [https://www.empathy.co/]
+   empathyLabs [https://www.empathy.co/]
    Licensed under the MIT License
 */
 #define ARDUINOJSON_DECODE_UNICODE 1
