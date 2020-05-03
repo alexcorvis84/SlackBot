@@ -113,6 +113,7 @@ The code uses the **[WifiManager](https://github.com/tzapu/WiFiManager)** librar
 Once the code has been uploaded, the ESP32 will create by default a **Wi-Fi *Access Point*** called **“EmpahtyBot_AP”** and *password* **“labs2020”**.
 
 ![WiFi config captive portal](/img/wifi_config.jpg)
+<img src="https://github.com/alexcorvis84/SlackBot/tree/master/img/wifi_config.jpg" width="200" height="100">
 
 Connect to it using any WiFi enabled device with a browser (computer, phone, tablet) and then the Web Captive Portal will start. You will be able to **scan and set up your Wi-Fi** connection.
 
