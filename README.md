@@ -1,4 +1,4 @@
-# Slack Bot 🤖: IoT automation with ESP32 & RTM API
+# ESP32 Slack Bot 🤖 for IoT projects
 
 ![ESP32 Slack Bot](/img/Slack_bot.png)
 
@@ -144,4 +144,14 @@ Select your Wi-Fi SSID, introduce your password, **click save** & you’re ready
 
 If the message sent by any user contains your ```<@MEMBER_ID>``` in the Slack ```#channel``` where the Bot has been integrated, the NeoPixel ring will show you an animation & then the sound alarm connected to the 12V relay will be turned on for a few seconds.
 
-Check video DEMO setup configuration [example](https://twitter.com/AlexCorvis84/status/1251226999315738626?s=20) running.
+Check VIDEO [example](https://twitter.com/AlexCorvis84/status/1251226999315738626?s=20) running.
+
+## What will you build next?
+
+Now it is your turn to come up with awesome ideas 💡 for **Slack device-bots** and build them. 
+
+Here are some ideas:
+
+- Personal notification desk lamp. Design & 3D print your own Slack notification desk lamp 🖥️🛎️
+- Surveillance system. Receive photos if motion is detected! 📸
+- Remote control. Automate any IoT project! 📡
