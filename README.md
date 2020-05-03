@@ -126,20 +126,27 @@ Once the code has been uploaded, the ESP32 will create by default a **Wi-Fi *Acc
 ```cpp
 !wm.autoConnect("EmpathyBot_AP","labs2020")
 ```
-
-<img src="/img/wifi_AP.jpg" alt="WiFi Access Point" width=250>
+<p align="center">
+    <img src="/img/wifi_AP.jpg" alt="WiFi Access Point" width=250>
+</p>
 
 Connect to it using any WiFi enabled device with a browser (computer, phone, tablet) and then the Web Captive Portal will start. 
 
+<p align="center">
 <img src="/img/wifi_config.jpg" alt="WiFi config captive portal" width=250>
+</p>
 
 You will be able to **scan and set up your Wi-Fi** connection.
 
-<img src="/img/wifi_scan.jpg" alt="WiFi Scan" width=250>
+<p align="center">
+    <img src="/img/wifi_scan.jpg" alt="WiFi Scan" width=250>
+</p>
 
 Select your Wi-Fi SSID, enter your password, **click save** & you’re ready to go!
 
-<img src="/img/wifi_credentials.jpg" alt="WiFi Setup" width=250>
+<p align="center">
+    <img src="/img/wifi_credentials.jpg" alt="WiFi Setup" width=250>
+</p>
 
 If you need to **reset settings to default**, just uncomment the below line & upload code to the board again.
 
