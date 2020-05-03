@@ -26,6 +26,10 @@ The idea of this integration is to use a microcontroller [ESP32](https://www.esp
 
 A bot 🤖 is the same as a regular app: it can access the same range of APIs and do all of the *‘magical things’* that a Slack App can do, but when you build a bot for your Slack App, you're giving that app a face, a name, a personality and encouraging users to talk to it.
 
+<p align="center">
+    <img src="/img/empathy_bot.jpg" alt="EmpathyBot App" width=500>
+</p>
+
 Bots can automate some actions or even enhance user notifications with digital displays like a Neopixel LED strip 🌈
 
 Integration examples:
