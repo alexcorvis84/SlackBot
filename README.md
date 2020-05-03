@@ -107,7 +107,7 @@ You can check it by looking at certificate details when accessing the Slack API 
 
 **Slack App and Bot integration**
 
-1) Get ```token``` by creating new App at https://api.slack.com/apps
+1) Get ```token``` by creating a classic Slack App at https://api.slack.com/apps?new_classic_app=1
 2) Add a **Bot User** to your App
 3) Then **install your App** to your Slack **workspace** to generate the ```Bot User OAuth Access Token```
 4) Set the following OAuth Scopes: ```channels:read``` / ```chat:write:bot``` / ```bot``` / ```incoming-webhook```
