@@ -112,6 +112,11 @@ The code uses the **[WifiManager](https://github.com/tzapu/WiFiManager)** librar
 
 Once the code has been uploaded, the ESP32 will create by default a **Wi-Fi *Access Point*** called **“EmpahtyBot_AP”** and *password* **“labs2020”**.
 
+> You can change the settings by your own modifying below code line
+```cpp
+!wm.autoConnect("EmpathyBot_AP","labs2020")
+```
+
 <img src="/img/wifi_AP.jpg" alt="WiFi Access Point" width=250>
 
 Connect to it using any WiFi enabled device with a browser (computer, phone, tablet) and then the Web Captive Portal will start. 
@@ -166,3 +171,7 @@ Here are some ideas:
 - Personal notification desk lamp. Design & 3D print your own Slack notification desk lamp 🖥️🛎️
 - Surveillance system. Receive photos if motion is detected! 📸
 - Remote control. Automate any IoT project! 📡📲
+
+## LICENSE 📋
+
+MIT License - Copyright (c) 2020 Alejandro Juan Garcia
