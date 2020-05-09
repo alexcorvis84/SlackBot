@@ -29,19 +29,12 @@
 // 3) Then install your App to your Slack workspace to generate the 'Bot User OAuth Access Token'
 // 4) Set your OAuth Scope: channels:read / chat:write:bot / bot / incoming-webhook
 
-// MakersAsturias Bot OAuth Token 
-#define SLACK_BOT_TOKEN "xoxb-722046927040-901972392550-sGoJOUZpxp9qdkj5AA27jDXq"
-
-// Empathy Bot OAuth Token 
-//#define SLACK_BOT_TOKEN "xoxb-4865966397-966266296320-pMcRTdiNSpnQMfRQN2QhUXRO"
+#define SLACK_BOT_TOKEN "Your_Bot_User_OAuth_Access_Token"
 
 // Locate your <@Member ID> in your Slack Space:
 // You can find it in Profile & account -> ... (vertical 3dots) -> Copy Member ID
-// Member ID MakersAturias 
-#define MEMBERID "<@UM81F0N0Y>"
+#define MEMBERID "<@MEMBER_ID>"
 
-// Member ID Empathy.co 
-//#define MEMBERID "<@UPV0X6QTE>"
 
 
 //-------------------------------------------------------------------------------------------------
